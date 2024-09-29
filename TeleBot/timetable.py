@@ -12,12 +12,13 @@ class TimeTable:
         day = datetime.datetime.today().weekday()
         # day = 5 день для тестов
 
+        if not(number_of_group.isdigit()) or int(number_of_group) <= 0 or int(number_of_group) > 9:
+            return "Неправильно введен номер группы"
         if datetime.datetime.today().weekday() == 3:
             return "Расписание отсутствует. Сегодня у тебя английский"
         elif day == 6:
             return "В воскресенье пар нет"
-        if not(number_of_group.isdigit()) or int(number_of_group) <= 0 or int(number_of_group) > 9:
-            return "Неправильно введен номер группы"
+
 
         now_minutes = datetime.datetime.now().hour * 60 + datetime.datetime.now().minute
         # now_minutes = 560 количество минут для тестов
@@ -54,4 +55,4 @@ class TimeTable:
 
 
 # создание класса для теста, указывайте номер группы, время в минутах и номер дня(нумерация с 0)
-print(TimeTable("timetable.xlsx").getclass('6'))
+# print(TimeTable("timetable.xlsx").getclass('6'))
