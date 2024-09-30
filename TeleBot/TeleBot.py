@@ -23,7 +23,6 @@ def text_recieve(message):
         bot.send_message(message.chat.id, "Введи номер своей группы КНТ")
         Wait_for_number = True
 
-    print('here')
 
 
 bot.polling(none_stop=True)
