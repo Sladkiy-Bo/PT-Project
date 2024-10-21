@@ -1,0 +1,439 @@
+import telebot
+from telebot import types
+
+bot = telebot.TeleBot('7718164215:AAHcSpLcQArR2cWOnQk13AVdnb3WKDWVZ2U')
+
+
+@bot.message_handler(commands=['start'])
+def start(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    btn1 = types.KeyboardButton("На Большой Печёрской")
+    btn2 = types.KeyboardButton("На Львовской")
+    markup.add(btn1, btn2)
+    bot.send_message(message.chat.id,
+                     text="Привет, {0.first_name}! Я помогу тебе найти самые классные места в округе! Для этого выбери корпус, в котором ты сейчас находишься :)".format(
+                         message.from_user), reply_markup=markup)
+
+@bot.message_handler(commands=['магазины'])
+def bpsh(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    bts1 = types.KeyboardButton("Spar Express [6 минут]")
+    bts2 = types.KeyboardButton("ВкусВилл [6 минут]")
+    bts3 = types.KeyboardButton("Spar Express [10 минут]")
+    bts4 = types.KeyboardButton("Eurospar [12 минут]")
+    bts5 = types.KeyboardButton("Авокадо [12 минут]")
+    back = types.KeyboardButton("Не хочу")
+    markup.add(bts1, bts2, bts3, bts4, bts5, back)
+    bot.send_message(message.chat.id, text="Выбери нужное место:", reply_markup=markup)
+
+@bot.message_handler(commands=['мaгазины'])
+def lvst(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    lvs1 = types.KeyboardButton("1000 мелочей [10 минут]")
+    lvs2 = types.KeyboardButton("Тортила [9 минут]")
+    lvs3 = types.KeyboardButton("Южный [9 минут]")
+    lvs4 = types.KeyboardButton("Аккумуляторы.рф [5 минут]")
+    lvs5 = types.KeyboardButton("Ежик [4 минуты]")
+    back = types.KeyboardButton("Давай назад")
+    markup.add(lvs1, lvs2, lvs3, lvs4, lvs5, back)
+    bot.send_message(message.chat.id, text="Выбери нужное место:", reply_markup=markup)
+
+@bot.message_handler(commands=['кафе'])
+def bpkf(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    bts1 = types.KeyboardButton("Мускат [2 минуты]")
+    bts2 = types.KeyboardButton("Coffee like [4 минуты]")
+    bts3 = types.KeyboardButton("Nuga [6 минут]")
+    bts4 = types.KeyboardButton("Cofee like [7 минут]")
+    bts5 = types.KeyboardButton("Закрома [8 минут]")
+    bts6 = types.KeyboardButton("Кунг-фу Панда [10 минут]")
+    back = types.KeyboardButton("Не хочу")
+    markup.add(bts1, bts2, bts3, bts4, bts5, bts6, back)
+    bot.send_message(message.chat.id, text="Выбери нужное место:", reply_markup=markup)
+
+@bot.message_handler(commands=['кaфе'])
+def lvkf(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    lvs1 = types.KeyboardButton("Шашлык на Львовской [5 минут]")
+    lvs2 = types.KeyboardButton("Донар по-турецки [10 минут]")
+    lvs3 = types.KeyboardButton("Гермес [12 минут]")
+    back = types.KeyboardButton("Давай назад")
+    markup.add(lvs1, lvs2, lvs3, back)
+    bot.send_message(message.chat.id, text="Выбери нужное место:", reply_markup=markup)
+
+@bot.message_handler(commands=['рестораны'])
+def bpre(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    bts1 = types.KeyboardButton("Мускат [2 минуты]")
+    bts2 = types.KeyboardButton("Печёрка [6 минут]")
+    bts3 = types.KeyboardButton("Amo restaurant [6 минут]")
+    bts4 = types.KeyboardButton("Vishnevsky Gastronomic Club [6 минут]")
+    bts5 = types.KeyboardButton("Колхида [10 минут]")
+    back = types.KeyboardButton("Не хочу")
+    markup.add(bts1, bts2, bts3, bts4, bts5, back)
+    bot.send_message(message.chat.id, text="Выбери нужное место:", reply_markup=markup)
+
+@bot.message_handler(commands=['аптеки'])
+def bpap(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    bts1 = types.KeyboardButton("Солнечное здоровье [6 минут]")
+    bts2 = types.KeyboardButton("Вита [8 минут]")
+    bts3 = types.KeyboardButton("Солнечное здоровье [10 минут]")
+    bts4 = types.KeyboardButton("Farmani [12 минут]")
+    bts5 = types.KeyboardButton("Farmani 2 [12 минут]")
+    back = types.KeyboardButton("Не хочу")
+    markup.add(bts1, bts2, bts3, bts4, bts5, back)
+    bot.send_message(message.chat.id, text="Выбери нужное место:", reply_markup=markup)
+
+@bot.message_handler(commands=['aптеки'])
+def lvap(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    lvs1 = types.KeyboardButton("Максавит [9 минут]")
+    lvs2 = types.KeyboardButton("Эконом [9 минут]")
+    lvs3 = types.KeyboardButton("Вита Express [9 минут]")
+    back = types.KeyboardButton("Давай назад")
+    markup.add(lvs1, lvs2, lvs3, back)
+    bot.send_message(message.chat.id, text="Выбери нужное место:", reply_markup=markup)
+
+@bot.message_handler(commands=['канцтовары'])
+def bpkn(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    bts1 = types.KeyboardButton("Магазин канцтоваров [7 минут]")
+    bts2 = types.KeyboardButton("ПалитраНН [7 минут]")
+    bts3 = types.KeyboardButton("Канцпарк [9 минут]")
+    bts4 = types.KeyboardButton("Дырокол [11 минут]")
+    back = types.KeyboardButton("Не хочу")
+    markup.add(bts1, bts2, bts3, bts4, back)
+    (bot.send_message(message.chat.id, text="Выбери нужное место:", reply_markup=markup))
+
+@bot.message_handler(commands=['кaнцтовары'])
+def lvkn(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    lvs1 = types.KeyboardButton("AF152 [9 минут]")
+    back = types.KeyboardButton("Давай назад")
+    markup.add(lvs1, back)
+    bot.send_message(message.chat.id, text="Выбери нужное место:", reply_markup=markup)
+
+@bot.message_handler(commands=["пункты","выдачи"])
+def lvpk(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    lvs1 = types.KeyboardButton("Яндекс.Маркет [9 минут]")
+    lvs2 = types.KeyboardButton("Wildberries-1 [9 минут]")
+    lvs3 = types.KeyboardButton("Wildberries-2 [4 минуты]")
+    lvs4 = types.KeyboardButton("Ozon [9 минут]")
+    lvs5 = types.KeyboardButton("Аквамарин [9 минут]")
+    lvs6 = types.KeyboardButton("Почта России [13 минут]")
+    back = types.KeyboardButton("Давай назад")
+    markup.add(lvs1,lvs2,lvs3,lvs4,lvs5,lvs6, back)
+    bot.send_message(message.chat.id, text="Выбери нужное место:", reply_markup=markup)
+
+@bot.message_handler(commands=["салоны","красоты"])
+def lvsk(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    lvs1 = types.KeyboardButton("Х@чу стрижку [9 минут]")
+    lvs2 = types.KeyboardButton("Триумф [4 минуты]")
+    lvs3 = types.KeyboardButton("Пальмира [9 минут]")
+    lvs4 = types.KeyboardButton("Алмар [5 минут]")
+    lvs5 = types.KeyboardButton("Nogotochki_nnov [10 минут]")
+    back = types.KeyboardButton("Давай назад")
+    markup.add(lvs1, lvs2, lvs3, lvs4, lvs5, back)
+    bot.send_message(message.chat.id, text="Выбери нужное место:", reply_markup=markup)
+
+@bot.message_handler(content_types=['text'])
+def func(message):
+    if (message.text == "На Большой Печёрской"):
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        btn1 = types.KeyboardButton("/магазины")
+        btn2 = types.KeyboardButton("/кафе")
+        btn3 = types.KeyboardButton("/рестораны")
+        btn4 = types.KeyboardButton("/аптеки")
+        btn5 = types.KeyboardButton("/канцтовары")
+        back = types.KeyboardButton("Вернуться в главное меню")
+        markup.add(btn1, btn2, btn3, btn4, btn5, back)
+        bot.send_message(message.chat.id, text="Выбери нужную категорию:", reply_markup=markup)
+    elif (message.text == "На Львовской"):
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        lv1 = types.KeyboardButton("/мaгазины")
+        lv2 = types.KeyboardButton("/кaфе")
+        lv3 = types.KeyboardButton("/aптеки")
+        lv4 = types.KeyboardButton("/кaнцтовары")
+        lv5 = types.KeyboardButton("/пункты выдачи")
+        lv6 = types.KeyboardButton("/салоны красоты")
+        baback = types.KeyboardButton("Вернуться в главное меню")
+        markup.add(lv1, lv2, lv3, lv4, lv5, lv6, baback)
+        bot.send_message(message.chat.id, text="Выбери нужную категорию:", reply_markup=markup)
+    elif (message.text == "Вернуться в главное меню"):
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        button1 = types.KeyboardButton("На Большой Печёрской")
+        button2 = types.KeyboardButton("На Львовской")
+        markup.add(button1, button2)
+        bot.send_message(message.chat.id, text="Без проблем, выбери место заново:", reply_markup=markup)
+    elif (message.text == "Не хочу"):
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        btn1 = types.KeyboardButton("/магазины")
+        btn2 = types.KeyboardButton("/кафе")
+        btn3 = types.KeyboardButton("/рестораны")
+        btn4 = types.KeyboardButton("/аптеки")
+        btn5 = types.KeyboardButton("/канцтовары")
+        back = types.KeyboardButton("Вернуться в главное меню")
+        markup.add(btn1, btn2, btn3, btn4, btn5, back)
+        bot.send_message(message.chat.id, text="Выбери нужную категорию:", reply_markup=markup)
+    elif (message.text == "Давай назад"):
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        lv1 = types.KeyboardButton("/мaгазины")
+        lv2 = types.KeyboardButton("/кaфе")
+        lv3 = types.KeyboardButton("/aптеки")
+        lv4 = types.KeyboardButton("/кaнцтовары")
+        lv5 = types.KeyboardButton("/пункты выдачи")
+        lv6 = types.KeyboardButton("/салоны красоты")
+        baback = types.KeyboardButton("Вернуться в главное меню")
+        markup.add(lv1, lv2, lv3, lv4, lv5, lv6, baback)
+        bot.send_message(message.chat.id, text="Выбери нужную категорию:", reply_markup=markup)
+        #МАГАЗИНЫ
+    elif (message.text == "1000 мелочей [10 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/1jtSEp3KTtAErQ7f9')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Тортила [9 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/CGRKpb9ewYhs5yHo8')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Южный [9 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/WYMKqPfGz3PXgPiJA')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Ежик [4 минуты]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/pMwUXzWhzobLSDzc8')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Аккумуляторы.рф [5 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/YaMxcEZfnyarEtHDA')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Spar Express [6 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/cQefLHDBE2FZ4Ydf8')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "ВкусВилл [6 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/zq6n2GEKmJjgtGc46')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Eurospar [12 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/fB572xCT5Tf7bovw8')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Spar Express [10 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/xbmycikTjB8BhgcW8')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Авокадо [12 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/AfGu3zRsUKoCuDK77')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+        #КАФЕ
+    elif (message.text == "Шашлык на Львовской [5 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/hcigjdC1yDE8ngaw5')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Донар по-турецки [10 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/7EoPMMTMtchnJ1Ys7')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Гермес [12 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/1UWii9kV7ZZaZA2s5')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Мускат [2 минуты]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/Xf8gzJLu1kqKzKx38')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Coffee like [4 минуты]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/XzL7uLAk5CQrn9r29')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Nuga [6 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/6KR1J67Ddzh6LwG36')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Cofee like [7 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/Yc3PH9oeVJLsGDLF8')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Закрома [8 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/Gi1EDe5ziSihgY8h9')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Кунг-фу Панда [10 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/abpU8cCWG6rTMTSh9')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+        #РЕСТОРАНЫ
+        #Мускат
+    elif (message.text == "Печёрка [6 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/8e6Sykm41mgc4fxu7')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Amo restaurant [6 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/2U5DwZeKif9okZX16')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Vishnevsky Gastronomic Club [6 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/2U5DwZeKif9okZX16')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Колхида [10 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/iDG3gnVhyx8hn4XQA')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+        #АПТЕКИ
+    elif (message.text == "Солнечное здоровье [6 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/N8TjRncbbMPvqZV68')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Вита [8 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/cbWhvnRNYLpnCLmG7')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Солнечное здоровье [10 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/69vjg1P9kv55JVNt9')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Farmani [12 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/fB572xCT5Tf7bovw8')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Farmani 2 [12 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/PyikTYJP71yCfhyX6')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Максавит [9 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/WYMKqPfGz3PXgPiJA')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Эконом [9 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/WYMKqPfGz3PXgPiJA')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Вита Express [9 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/WYMKqPfGz3PXgPiJA')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+        #ПУНКТЫ_ВЫДАЧИ
+    elif (message.text == "Яндекс.Маркет [9 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/WYMKqPfGz3PXgPiJA')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Wildberries-1 [9 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/WYMKqPfGz3PXgPiJA')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Wildberries-2 [4 минуты]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/mSwS3WQ8Z2qhHFTw8')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Ozon [9 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/WYMKqPfGz3PXgPiJA')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Аквамарин [9 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/WYMKqPfGz3PXgPiJA')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Почта России [13 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/GGXkyHRydL6X3HTV8')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+        #КАНЦТОВАРЫ
+    elif (message.text == "Магазин канцтоваров [7 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/D5xHA3SzXfiPeMuA6')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "ПалитраНН [7 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/M2X6LSTkGbBQpWJh9')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Канцпарк [9 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/UDzGchKy5MdyKNaGA')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Дырокол [11 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/4jAZTJRsNFGP2naD9')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "AF152 [9 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/mLw4xASfrpLF8zyj9')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+        #САЛОНЫ_КРАСОТЫ
+    elif (message.text == "Х@чу стрижку [9 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/WYMKqPfGz3PXgPiJA')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Триумф [4 минуты]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/Tr55mCQxtfeyUYoi7')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Пальмира [9 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/HgezsuC5Q2ZdTbTo7')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Алмар [5 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/ARk4VkvmojScFqtRA')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+    elif (message.text == "Nogotochki_nnov [10 минут]"):
+        keyboard = telebot.types.InlineKeyboardMarkup()
+        button_url = telebot.types.InlineKeyboardButton(text='Ссылка', url='https://maps.app.goo.gl/6DpgHTDy68mGcLpq8')
+        keyboard.add(button_url)
+        bot.send_message(message.chat.id, text='Приятно провести время :)', reply_markup=keyboard)
+
+    else:
+        bot.send_message(message.chat.id, text="Ой, я тебя не понял :(")
+
+bot.polling(none_stop=True)
